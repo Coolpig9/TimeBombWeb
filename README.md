@@ -4,5 +4,6 @@ To use
   2. Set time limit
   3. Hit start
 
-To use visit: 
-[http](https://coolpig9.github.io/TimeBombWeb/index.html)
+To use visit:
+
+[TimeBomb Emulator](https://coolpig9.github.io/TimeBombWeb/index.html)
