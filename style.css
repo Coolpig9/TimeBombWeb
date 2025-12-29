@@ -1,12 +1,39 @@
-section{
+
+body{
+    background-color: #a1453f;
+    overflow: hidden;
+}
+h2{
+    margin:0;
+}
+hr{
+    margin:0;
+    border: 0;
+    border-top: 3px solid #8e3e39;
+}
+fieldset{
     display: inline-block;
-    margin: 0 40px;
+    border: 15px solid #131313;
+    border-radius: 20px;
+    background-color: #252525;
+    color:rgb(193, 193, 193);
+    padding: 20px;
+    box-shadow: 10px 10px #8e3e39;
 }
-h3{
-    position: absolute;
-    color:red;
-    top:70px;
+legend{
+    font-size:20px;
 }
+button{
+    color:rgb(193, 193, 193);
+    background-color: #1d1d1d;
+    border: 5px solid #131313;
+    border-radius: 10px;
+}
+button:active{
+    background-color: #141414;
+}
+
+
 #setTime{
     position: fixed;
     left: 35px;
@@ -29,9 +56,10 @@ h3{
 #disarmTitle{
     left: 475px;
 }
-#disarmCode{
+#disarmKeyPad{
+    top: 50px;
     position: fixed;
-    left: 550px;
+    left: 500px;
     button{
         width: 80px;
         height: 45px;
@@ -42,15 +70,15 @@ h3{
             display: inline-block;
             margin:0;
             font-size:50px;
-            background-color: aqua;
+            background-color: rgb(29, 27, 27);
         }
     }
     #keyPad{
         span{
-            margin: 20px,0;
+            margin: 20px, 0;
         }
         button{
-            margin: 0,20px;
+            margin: 0, 20px;
         }
     }
 }
