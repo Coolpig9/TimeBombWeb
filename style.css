@@ -2,6 +2,11 @@ section{
     display: inline-block;
     margin: 0 40px;
 }
+h3{
+    position: absolute;
+    color:red;
+    top:70px;
+}
 #setTime{
     position: fixed;
     left: 35px;
@@ -20,11 +25,7 @@ section{
     }
 }
 
-h3{
-    position: absolute;
-    color:red;
-    top:70px;
-}
+
 #disarmTitle{
     left: 475px;
 }
