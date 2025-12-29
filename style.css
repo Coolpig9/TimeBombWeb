@@ -1,0 +1,50 @@
+section{
+    display: inline-block;
+    margin: 0 40px;
+}
+.buttonBlock{
+    width: 100px;
+    display: inline-block;
+    p{
+        text-align: center;
+        margin:0;
+        font-size:30px;
+    }
+    button{
+        width: 100px;
+        height: 50px;
+    }
+}
+h3{
+    position: absolute;
+    color:red;
+    top:70px;
+}
+#disarmTitle{
+    left: 475px;
+}
+#disarmCode{
+    float: right;
+    button{
+        width: 80px;
+        height: 45px;
+    }
+    #codeDisplay{
+        text-align: center;
+        p{
+            display: inline-block;
+            margin:0;
+            font-size:50px;
+            background-color: aqua;
+        }
+    }
+    #keyPad{
+        span{
+            margin: 20px,0;
+        }
+        button{
+            margin: 0,20px;
+        }
+    }
+}
+

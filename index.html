@@ -2,8 +2,52 @@
 <html>
   <head>
     <title>TimeBombWeb</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h1>TEST</h1>
+    <h1>TimeBomb Setup</h1>
+    <hr>
+    <br>
+    <h3 id="timerTitle">Set Time:</h3>
+    <section id="setTime">
+      <div id="Hour" class="buttonBlock">
+        <p>Hour</p>
+        <button> ^ </button>
+        <p>0</p>
+        <button> v </button>
+      </div>
+      <div id="Minute" class="buttonBlock">
+        <p>Minute</p>
+        <button> ^ </button>
+        <p>0</p>
+        <button> v </button>
+      </div>
+      <div id="Second" class="buttonBlock">
+        <p>Second</p>
+        <button> ^ </button>
+        <p>0</p>
+        <button> v </button>
+      </div>
+    </section>
+    <h3 id="disarmTitle">Set Disarm Code:</h3>
+    <section id="disarmCode">
+      <div id="codeDisplay">
+        <p >_</p>
+        <p >_</p>
+        <p >_</p>
+        <p >_</p>
+      </div>
+      <br>
+      <div id="keyPad">
+        <span id="keyPadRow1"> <button>7</button>        <button>8</button>        <button>9</button> </span>
+        <br>
+        <span id="keyPadRow2"> <button>4</button>        <button>5</button>        <button>6</button> </span>
+        <br>
+        <span id="keyPadRow3"> <button>3</button>        <button>2</button>        <button>1</button> </span>
+        <br>
+        <span id="keyPadRow4"> <button><</button>        <button>0</button>        <button>C</button> </span>
+      </div>
+    </section>
+
   </body>
 </html>
