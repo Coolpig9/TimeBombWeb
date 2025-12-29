@@ -2,19 +2,24 @@ section{
     display: inline-block;
     margin: 0 40px;
 }
-.buttonBlock{
-    width: 100px;
-    display: inline-block;
-    p{
-        text-align: center;
-        margin:0;
-        font-size:30px;
-    }
-    button{
+#setTime{
+    position: fixed;
+    left: 35px;
+    .buttonBlock{
         width: 100px;
-        height: 50px;
+        display: inline-block;
+        p{
+            text-align: center;
+            margin:0;
+            font-size:30px;
+        }
+        button{
+            width: 100px;
+            height: 50px;
+        }
     }
 }
+
 h3{
     position: absolute;
     color:red;
@@ -24,7 +29,8 @@ h3{
     left: 475px;
 }
 #disarmCode{
-    float: right;
+    position: fixed;
+    left: 550px;
     button{
         width: 80px;
         height: 45px;
