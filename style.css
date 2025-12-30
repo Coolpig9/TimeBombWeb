@@ -1,7 +1,10 @@
+/* common style */
 
 body{
     background-color: #a1453f;
     overflow: hidden;
+    color:rgb(193, 193, 193);
+
 }
 h2{
     margin:0;
@@ -16,7 +19,6 @@ fieldset{
     border: 15px solid #131313;
     border-radius: 20px;
     background-color: #252525;
-    color:rgb(193, 193, 193);
     padding: 20px;
     box-shadow: 10px 10px #8e3e39;
 }
@@ -29,11 +31,15 @@ button{
     border: 5px solid #131313;
     border-radius: 10px;
 }
-button:active{
+
+button:hover:not(button:active){
+    background-color: #313131;
+}
+button:active, .buttonActive{
     background-color: #141414;
 }
 
-
+/* Timer Selecter */
 #setTime{
     position: fixed;
     left: 35px;
@@ -52,6 +58,7 @@ button:active{
     }
 }
 
+/* Keypad */
 
 #disarmTitle{
     left: 475px;
@@ -63,6 +70,16 @@ button:active{
     button{
         width: 80px;
         height: 45px;
+    }
+    img{
+        background-color: #1d1d1d;
+        padding: 5px;
+        float:left;
+        position: fixed;
+        display:none;
+    }
+    .locked{
+        background-color: #000000;
     }
     #codeDisplay{
         text-align: center;
@@ -81,5 +98,70 @@ button:active{
             margin: 0, 20px;
         }
     }
+}
+/* Submit Menu*/
+#blur{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left:0;
+    top: 0;
+    background-color: #000000;
+    filter:opacity(.5);
+
+}
+
+#submitButton{
+    position: fixed;
+    width: 346px;
+    top: 315px;
+    left: 40px;
+    border-width: 15px;
+    margin: 0 auto;
+    padding: 10px 100px;
+}
+.submitMenu{
+    width:400px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 0;
+    h1{
+        margin:0;
+        margin-top: -20px
+    }
+    button{
+        padding:10px;
+    }
+}
+#submitConfirm{
+    h4{
+        margin:0;
+    }
+    
+    div{
+        display: flex;
+        span{
+            margin:0 50px;
+        }
+    }
+    #code{
+        float:right;
+        margin-right:100px
+    }
+    #sumitTime{
+        margin-left:75px;
+        font-weight: bold;
+        span{
+            font-weight: 100;
+        }
+    }
+}
+#submitErr{
+
+}
+.hide{
+    display: none;
 }
 

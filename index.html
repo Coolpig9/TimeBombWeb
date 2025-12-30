@@ -2,35 +2,40 @@
 <html>
   <head>
     <title>TimeBombWeb</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
   </head>
   <body>
     <h2>TimeBomb Setup</h2>
     <hr>
     <br>
+    <!--Timer UI-->
     <fieldset id="setTime">   <legend id="timerTitle">Set Time:</legend>
-      <div id="Hour" class="buttonBlock">
+      <div id="hour" class="buttonBlock">
         <p>Hour</p>
-        <button> ^ </button>
+        <button onclick="timerChange('h',1)" ontouchend="timerChange('h',1)"> ^ </button>
         <p>0</p>
-        <button> v </button>
+        <button onclick="timerChange('h',-1)" ontouchend="timerChange('h',-1)"> v </button>
       </div>
-      <div id="Minute" class="buttonBlock">
+      <div id="minute" class="buttonBlock">
         <p>Minute</p>
-        <button> ^ </button>
+        <button onclick="timerChange('m',1)" ontouchend="timerChange('m',1)"> ^ </button>
         <p>0</p>
-        <button> v </button>
+        <button onclick="timerChange('m',-1)" ontouchend="timerChange('m',-1)"> v </button>
       </div>
-      <div id="Second" class="buttonBlock">
+      <div id="second" class="buttonBlock">
         <p>Second</p>
-        <button> ^ </button>
+        <button onclick="timerChange('s',1)" ontouchend="timerChange('s',1)"> ^ </button>
         <p>0</p>
-        <button> v </button>
+        <button onclick="timerChange('s',-1)" ontouchend="timerChange('s',-1)"> v </button>
       </div>
     </fieldset>
-    <h3 ></h3>
+
+    <!--KeyPad UI-->
     <fieldset id="disarmKeyPad">  <legend id="disarmTitle"> Set Disarm Code:</legend>    
+      <img id="lockIMG" src="unlocked.svg" alt="Image Of a lock">
       <div id="codeDisplay">
         <p >_</p>
         <p >_</p>
@@ -39,15 +44,40 @@
       </div>
       <br>
       <div id="keyPad">
-        <span id="keyPadRow1"> <button>7</button>        <button>8</button>        <button>9</button> </span>
+        <span id="keyPadRow1"> <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">7</button>        <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">8</button>        <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">9</button> </span>
         <br>
-        <span id="keyPadRow2"> <button>4</button>        <button>5</button>        <button>6</button> </span>
+        <span id="keyPadRow2"> <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">4</button>        <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">5</button>        <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">6</button> </span>
         <br>
-        <span id="keyPadRow3"> <button>3</button>        <button>2</button>        <button>1</button> </span>
+        <span id="keyPadRow3"> <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">3</button>        <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">2</button>        <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">1</button> </span>
         <br>
-        <span id="keyPadRow4"> <button><</button>        <button>0</button>        <button>SET</button> </span>
+        <span id="keyPadRow4"> <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">&lt;</button>     <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">0</button>     <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">C</button> </span>
       </div>
     </fieldset>
+    
+    <!--Submit menus-->
 
+    <button id="submitButton" onclick="summitSetup()" ontouchend="summitSetup()"> SUBMIT </button>
+    <span id="blur" class="hide"></span>
+    <fieldset id="submitConfirm" class="submitMenu hide"> <legend>Submit Confirm</legend>
+        <h1>Are you sure this is <u>correct??</u></h1>
+        <div><h4>Timer is set for:</h4><span></span><h4>Code is:</h4></div>
+        <p id="code">err</p>
+        <p id="sumitTime"> Hours:&nbsp;<span>err</span> <br> Minutes:&nbsp;<span>err</span> <br> Seconds:&nbsp;<span>err</span></p>
+
+        <button onclick="closeMenu('submitConfirm')" ontouchend="closeMenu('submitConfirm')">NOOO GO <u>BACK!!!!</u></button>
+        <a id="bombLink" href="timer.html"><button> YES! TAKE ME TO THE <b><u>BOMB</u></b> </button></a>
+    </fieldset>
+
+    <fieldset id="submitErr" class="submitMenu hide"> <legend>Submit ERROR</legend>
+      <h1>hmmm.... </h1>
+      <p>
+        Seems like you may have entered, <u>Nothing</u> or an <u>Invaild</u> number for code or timer :/
+        <br><br>
+        Make sure you have a vaild input for both, "Timer" and "Code"
+      </p>
+      <p>Reason:<span id="submitErrReason">''</span></p>
+      <button onclick="closeMenu('submitErr')" ontouchend="closeMenu('submitErr')">Close</button>
+    </fieldset>
   </body>
+  <script src="setup.js"></script>
 </html>
