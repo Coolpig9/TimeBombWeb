@@ -1,6 +1,7 @@
 /* common style */
 
 body{
+    touch-action: none;
     background-color: #a1453f;
     overflow: hidden;
     color:rgb(193, 193, 193);
@@ -38,10 +39,14 @@ button:hover:not(button:active){
 button:active, .buttonActive{
     background-color: #141414;
 }
-
+#verNum{
+    float: right ;
+    color: #843a34;
+}
 /* Timer Selecter */
 #setTime{
     position: fixed;
+    top: 8%;
     left: 2%;
     .buttonBlock{
         width: 100px;
@@ -64,7 +69,8 @@ button:active, .buttonActive{
     left: 475px;
 }
 #disarmKeyPad{
-    top: 50px;
+    top: 8%;
+    width: 250px;
     position: fixed;
     left: 50%;
     button{
@@ -114,7 +120,7 @@ button:active, .buttonActive{
 #submitButton{
     position: fixed;
     width: 346px;
-    top: 80%;
+    top: 70%;
     left: 2%;
     border-width: 15px;
     margin: 0 auto;
