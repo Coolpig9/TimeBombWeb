@@ -7,18 +7,17 @@
         <link rel="icon" href="favicon.ico" type="image/x-icon">
     </head>
     <body>
-        <h2 id="verNum">V0.10</h2>
+        <h2 id="verNum">V0.13</h2>
 
         <fieldset id="countDownTimer"> <legend>Bomb Timer</legend>
-            <section>
+            <section id="timeWheel">
                 <div id="clock">
                     <div id="timerDisplay">
-                        <span>01:</span>
-                        <span>02:</span>
+                        <span>01</span>:
+                        <span>02</span>:
                         <span>03</span>
                     </div>
                 </div>
-                
             </section>
             
         </fieldset>
@@ -41,5 +40,7 @@
                 <span id="keyPadRow4"> <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">&lt;</button>     <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">0</button>        <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">ENTER</button> </span>
             </div>
         </fieldset>
+        <script src="timer.js"></script>
+
     </body>
 </html>

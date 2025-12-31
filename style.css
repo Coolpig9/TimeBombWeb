@@ -187,7 +187,7 @@ button:active, .buttonActive{
         width: 80%;
         height: 80%;
         border-radius: 10000px;
-        background: conic-gradient(rgb(26, 255, 0) 100deg, rgb(255, 0, 0) 1deg);
+        background: conic-gradient(rgb(26, 255, 0) 0deg, rgb(255, 0, 0) 1deg);
         #clock{
             margin: auto;
             width:  72%;
