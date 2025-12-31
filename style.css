@@ -63,15 +63,16 @@ button:active, .buttonActive{
     }
 }
 
-/* Keypad */
+/* Keypad (both setup and timer)*/
 
 #disarmTitle{
     left: 475px;
 }
 #disarmKeyPad{
-    top: 8%;
+    
     width: 250px;
     position: fixed;
+    top: 8%;
     left: 50%;
     button{
         width: 80px;
@@ -114,13 +115,12 @@ button:active, .buttonActive{
     top: 0;
     background-color: #000000;
     filter:opacity(.5);
-
 }
 
 #submitButton{
     position: fixed;
     width: 346px;
-    top: 70%;
+    top: 75%;
     left: 2%;
     border-width: 15px;
     margin: 0 auto;
@@ -164,10 +164,52 @@ button:active, .buttonActive{
         }
     }
 }
-#submitErr{
-
-}
 .hide{
     display: none;
 }
 
+
+/* Timer HTML styles*/
+#countDownTimer{    
+    position: fixed;
+    left: 8%;
+    top: 8%;
+    width: 250px;
+    height: 250px;
+    padding:10px;
+    display: flex;
+        justify-content: center;
+        align-items: center;   
+    section{
+        display: flex;
+        justify-content: center;
+        align-items: center;   
+        width: 80%;
+        height: 80%;
+        border-radius: 10000px;
+        background: conic-gradient(rgb(26, 255, 0) 100deg, rgb(255, 0, 0) 1deg);
+        #clock{
+            margin: auto;
+            width:  72%;
+            height: 72%;
+            border-radius: 10000px;
+            border: 15px solid #131313;
+            
+            background-color: rgb(193, 193, 193);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            white-space: nowrap;
+            #timerDisplay{
+                text-align: center;
+                margin:20px;
+                font-size: 30px;
+                color:#000000;
+                float:left;
+            }
+            
+        }
+        
+    }
+    
+}

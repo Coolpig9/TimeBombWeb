@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>TimeBombWeb</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+    </head>
+    <body>
+        <h2 id="verNum">V0.10</h2>
+
+        <fieldset id="countDownTimer"> <legend>Bomb Timer</legend>
+            <section>
+                <div id="clock">
+                    <div id="timerDisplay">
+                        <span>01:</span>
+                        <span>02:</span>
+                        <span>03</span>
+                    </div>
+                </div>
+                
+            </section>
+            
+        </fieldset>
+        <fieldset id="disarmKeyPad">  <legend id="disarmTitle"> Enter Disarm Code:</legend>    
+            <img id="lockIMG" src="unlocked.svg" alt="Image Of a lock">
+            <div id="codeDisplay">
+                <p >_</p>
+                <p >_</p>
+                <p >_</p>
+                <p >_</p>
+            </div>
+            <br>
+            <div id="keyPad">
+                <span id="keyPadRow1"> <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">7</button>        <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">8</button>        <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">9</button> </span>
+                <br>
+                <span id="keyPadRow2"> <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">4</button>        <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">5</button>        <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">6</button> </span>
+                <br>
+                <span id="keyPadRow3"> <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">3</button>        <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">2</button>        <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">1</button> </span>
+                <br>
+                <span id="keyPadRow4"> <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">&lt;</button>     <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">0</button>        <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">ENTER</button> </span>
+            </div>
+        </fieldset>
+    </body>
+</html>

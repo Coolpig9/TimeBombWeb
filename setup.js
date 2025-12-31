@@ -81,8 +81,22 @@ function summitSetup(){
         return;
     }
     submitConfirm.classList.remove('hide');
-    bombLink.href += '?a=1';
+    //adds data to screen
+    document.getElementById('code').innerHTML = disarmCode;
+    const submitTime = document.getElementById('sumitTime');
+    console.log(submitTime.children);
+    let timeVar = '';
+    for(let i = 0; i<3; i++){
+
+        console.log(i,submitTime.children[i*2].innerHTML,timer[['h','m','s'][i]].innerHTML);
+        const tKey = ['h','m','s'];
+        const t = timer[tKey[i]].innerHTML;
+        timeVar += '&' + tKey[i] + '=' + t;
+        submitTime.children[i*2].innerHTML = t;
+    }
+    bombLink.href += '?code='+disarmCode+timeVar;
 }
+
 submitErrReason
 //common close menu button
 function closeMenu(parID){
