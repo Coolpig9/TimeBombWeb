@@ -8,12 +8,26 @@ let seconds = 0;
 var bombBlownUp = false;
 var bombDisarmed = false;
 
+
+
+
 console.log(setupKey,totalSeconds);
 timerC[0].innerHTML = setupKey.get('h');
 timerC[1].innerHTML = setupKey.get('m');
 timerC[2].innerHTML = setupKey.get('s');
+var ticker;
 
-const ticker = setInterval(timerTick, 1000);
+const bombArmMenu = document.getElementById('bombArmMenu');
+const menuBlur = document.getElementById('blur');
+function armMenu(){
+    bombArmMenu.classList.add('hide');
+    menuBlur.classList.add('hide');
+    ticker = setInterval(timerTick, 1000);
+    //tickAudio();
+}
+const armBombButton = document.getElementById('armBombButton');
+
+
 
 function timerTick() {
     if(seconds >= totalSeconds){
@@ -33,10 +47,13 @@ function timerTick() {
 }
 
 let tickDelay = 1;
-
+var bombTick = null;
+armBombButton.addEventListener('click', () => {
+    bombTick = new Audio('sound/beep.webm');
+    tickAudio();
+})
 function tickAudio() {
     if(bombDisarmed || bombBlownUp){return;}
-    var bombTick = new Audio('sound/beep.webm');
     bombTick.play();
     if((seconds+32-totalSeconds > 0)){
         tickDelay += 0.1
@@ -48,7 +65,8 @@ function tickAudio() {
     console.log(seconds, 2000/tickDelay, seconds/((totalSeconds-30)))
     setTimeout(tickAudio, 2000/tickDelay);
 }
-tickAudio()
+
+
 function blowupFail(){
     bombBlownUp = true
 }

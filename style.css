@@ -168,6 +168,9 @@ button:active, .buttonActive{
     display: none;
 }
 
+#armBombButton{
+    color:rgb(184, 50, 50);
+}
 
 /* Timer HTML styles*/
 #countDownTimer{    

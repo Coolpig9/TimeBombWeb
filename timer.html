@@ -40,6 +40,21 @@
                 <span id="keyPadRow4"> <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">&lt;</button>     <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">0</button>        <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">ENTER</button> </span>
             </div>
         </fieldset>
+        
+        <!-- Are you sure Menu -->
+        <span id="blur"></span>
+
+        <fieldset id="bombArmMenu" class="submitMenu">
+            <h1>Warning: </h1> <legend>Ready?</legend>
+            <p>
+                Clicking this button will arm the 'bomb' and start the timer. 
+                You cant pause the bomb without the passcode.
+                <span style="color:rgb(39, 107, 39)">Good Luck.</span>
+            </p>
+            <br>
+            <h4>Are You Ready??</h4>
+            <button id="armBombButton" onclick="armMenu();" ontouchend="armMenu();"><b>ARM THE Bomb</b></button>
+        </fieldset>
         <script src="timer.js"></script>
 
     </body>
