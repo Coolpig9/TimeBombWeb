@@ -49,7 +49,8 @@ function timerTick() {
 let tickDelay = 1;
 var bombTick = null;
 armBombButton.addEventListener('click', () => {
-    bombTick = new Audio('sound/sound/wrongCode.mp3');
+    bombTick = new Audio('sound/wrongCode.mp3');
+    bombTick.play();
     tickAudio();
 })
 function tickAudio() {
