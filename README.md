@@ -1,4 +1,4 @@
-This is a Simple Time-Bomb Emulator built for a freind
+This is a Simple Time-Bomb Emulator ment for a phone
 To use
   1. Set Deactivation Code
   2. Set time limit
