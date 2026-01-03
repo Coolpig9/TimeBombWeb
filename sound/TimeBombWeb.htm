@@ -1,28 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
         <title>TimeBombWeb</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        <link rel="stylesheet" href="style.css">
-        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="TimeBombWeb_files/style.css">
+        <link rel="icon" href="http://127.0.0.1:5500/favicon.ico" type="image/x-icon">
     </head>
     <body>
-        <h2 id="verNum">V1.19</h2>
-        
+        <h2 id="verNum">TEST-4</h2>
+
+    <!--h2 id="verNum">V0.13</h2>-->
 
         <fieldset id="countDownTimer"> <legend>Bomb Timer</legend>
-            <section id="timeWheel">
+            <section id="timeWheel" style="background: conic-gradient(rgb(26, 255, 0) 120deg, rgb(255, 0, 0) 1deg);">
                 <div id="clock">
-                    <div id="timerDisplay">
-                        <span>01</span>:
-                        <span>02</span>:
-                        <span>03</span>
+                    <div id="timerDisplay" style="font-weight: bold;">
+                        <span>0</span>:
+                        <span>0</span>:
+                        <span>40</span>
                     </div>
                 </div>
             </section> 
         </fieldset>
         <fieldset id="disarmKeyPad">  <legend id="disarmTitle"> Enter Disarm Code:</legend>    
-            <img id="lockIMG" src="unlocked.svg" alt="Image Of a lock">
+            <img id="lockIMG" src="TimeBombWeb_files/unlocked.svg" alt="Image Of a lock">
             <!---->
             <div id="codeDisplay">
                 <span>_</span>
@@ -44,9 +45,9 @@
         </fieldset>
 
         <!-- Are you sure Menu -->
-        <span id="blur"></span>
+        <span id="blur" class="hide"></span>
 
-        <fieldset id="bombArmMenu" class="submitMenu">
+        <fieldset id="bombArmMenu" class="submitMenu hide">
             <h1>Warning: </h1> <legend>Ready?</legend>
             <p>
                 Clicking this button will arm the 'bomb' and start the timer. 
@@ -57,52 +58,46 @@
             <h4>Are You Ready??</h4>
             <button id="armBombButton" onclick="closeArmMenu();" ontouchend="closeArmMenu();"><b>ARM THE BOMB</b></button>
         </fieldset>
+        <script src="TimeBombWeb_files/howler.core.js"></script>
+        <script src="TimeBombWeb_files/timer.js"></script>
 
+    <!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
 
-        <div id="flash" class="hide">
-            <p>You Blow Up :(</p>
-            <img src="flash.svg" alt="you died screen">
-        </div>
-        <fieldset id="endMenu" class="submitMenu hide">
-            <legend>MISSON SUCCESS</legend>
-            <h1>YOU DISARMED THE BOMB</h1>
-            <p></p>
-            <h4>Stats:</h4>
-            <div id="endStats">
-                <p>Time left:</p>
-                <p>Code: <span id='menuCode' class="spoiler" onclick="setAsCode(this)" ontouchend="setAsCode(this)">show</span></p>
-                <p>Wrong Attempt: </p>
-            </div>
-            <a href="index.html"><button>Make new <b>bomb??</b></button></a>
-
-        </fieldset>
-        <!--
-        <fieldset id="youDiedMenu" class="submitMenu hide"> <legend>... You Dead</legend>
-            <h1>IT WENT OFF</h1>
-            <p>
-                welp... atleast you tryied...
-            </p>
-            <div class="menuStats">
-                <p>code: <span class="menuCode" onclick="setAsCode(this)" ontouchend="setAsCode(this)">show</span></p>
-                <p>Wrong Attemps: <span class="wrongAtt"></span></p>
-            </div>
-            <button onclick="closeMenu('submitErr')" ontouchend="closeMenu('submitErr')">make new <b>bomb??</b></button>
-        </fieldset>
-
-        <fieldset id="bombDisarmedMenu" class="submitMenu hide"> <legend>YOU DID IT!</legend>
-            <h1>YOU DISARMED THE BOMB</h1>
-            <div class="menuStats">
-                <p>Remaining Time: </p> <p>Time Comment</p>
-                <p>Code: <span class="menuCode" onclick="setAsCode(this)" ontouchend="setAsCode(this)">show</span></p>
-                <p>Wrong Attempts: <span class="wrongAtt"></span></p>
-            </div>
-
-            <button onclick="closeMenu('submitErr')" ontouchend="closeMenu('submitErr')">Close</button>
-        </fieldset>
-        -->
-
-        <script src="dep/howler/howler.core.js"></script>
-        <script src="timer.js"></script>
-
-    </body>
-</html>
+</body></html>

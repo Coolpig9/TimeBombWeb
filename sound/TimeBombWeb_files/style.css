@@ -147,13 +147,12 @@ button:active, .buttonActive{
 
 
 .submitMenu{
-    width: 80vw;
+    width: 80%;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     box-shadow: 0 0 0;
-    padding:20px;
     h1{
         margin:0;
         margin-top: -20px
@@ -234,53 +233,4 @@ button:active, .buttonActive{
         
     }
     
-}
-
-#flash{
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    visibility: hidden;
-    z-index: 100000;
-    p{
-        font-size: 10px;
-        color:black;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -100%);
-    }
-   
-}
-.spoiler{
-    background-color: black;
-    font-size: 10px;
-    padding: 5px 10px;
-}
-#endStats{
-    font-size: 10px;
-}
-@keyframes flashAni{
-    0%{
-        visibility: visible;
-        transform: scale(1);
-        opacity: 1;
-    }
-    50%{
-        visibility: visible;
-        transform: scale(12);
-        opacity: 1;
-    }
-    70%{
-        visibility: visible;
-        transform: scale(12);
-        opacity: 1;
-    }
-    100%{
-        visibility: hidden;
-        transform: scale(12);
-        opacity: 0;
-    }
 }

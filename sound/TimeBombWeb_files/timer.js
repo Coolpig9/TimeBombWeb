@@ -15,8 +15,8 @@ var bombDisarmed = false;
 //Sound init
 
 //explode/not explode sounds
-const explode       = new Howl({src: ['sound/explosion.mp3']});
-const correct     = new Howl({src: ['sound/correct2.mp3']});
+const wrong       = new Howl({src: ['sound/wrongCode.mp3']});
+const correct     = new Howl({src: ['sound/correct1.mp3']});
 
 //keypad
 const keyClick    = new Howl({src: ['sound/enter.wav']});
@@ -33,14 +33,14 @@ timerC[0].innerHTML = setupKey.get('h');
 timerC[1].innerHTML = setupKey.get('m');
 timerC[2].innerHTML = setupKey.get('s');
 var ticker;
-const menuBlur = document.getElementById('blur');
 
 function closeArmMenu(){
     const bombArmMenu = document.getElementById('bombArmMenu');
+    const menuBlur = document.getElementById('blur');
     bombArmMenu.classList.add('hide');
     menuBlur.classList.add('hide');
     ticker = setInterval(timerTick, 1000);
-    timerTickAudio(false);
+    timerTickAudio();
 }
 const armBombButton = document.getElementById('armBombButton');
 
@@ -62,64 +62,30 @@ function timerTick() {
     timeWheel.style.background = "conic-gradient(rgb(26, 255, 0) "+ (360*(seconds/totalSeconds)) +"deg, rgb(255, 0, 0) 1deg)" ;
 }
 
-function timerTickAudio(bold) {
-    if(bombBlownUp || bombDisarmed){return} //ends loop when 'player' loses
+
+function timerTickAudio() {
+    if(bombBlownUp){return} //ends loop when 'player' loses
     bombTick.play();
-    var lowTime = 0;
-
     if(seconds >= totalSeconds-30){
-        lowTime = (500/(20)*seconds);
+        lowTime=(500/(15)*seconds);
         timer.style.color = 'red';
-        if (lowTime > 750) {lowTime = 750}
-        timer.style.fontWeight = ['bold','400'][Number(bold)]
-
     }
-    setTimeout(timerTickAudio, 1000-lowTime, !bold)
+    if(timer.style.fontWeight == 'none')
+        {timer.style.fontWeight  = 'bold';}
+    else 
+        {timer.style.fontWeight  = 'bold';}
+    setTimeout(timerTickAudio, 1000-lowTime)
 }
-var wrongAttemptCount = 0;
-function endMenu(win){
-    const endMenuScreen = document.getElementById('endMenu');
-    const endMenuChildrn = endMenuScreen.children;
-    const menuCode = document.getElementById('menuCode');
-    const stats = document.getElementById('endStats').children;
 
 
-    menuBlur.classList.remove('hide');
-    endMenuScreen.classList.remove('hide');
-    if(!win){
-        endMenuChildrn[0].innerHTML = '... You Dead'; //legend
-        endMenuChildrn[1].innerHTML = 'IT WENT OFF'; //h1
-        endMenuChildrn[2].innerHTML = 'welp... atleast you tryied...' //p
-        menuCode.innerHTML = 'show';
-        menuCode.classList.add('spoiler');
-    }
-    stats[0].innerHTML += ' Hour: '+ timerC[0].innerHTML +' Minute: ' +
-        timerC[1].innerHTML + ' second: ' + timerC[2].innerHTML //timeleft
-    stats[2].innerHTML += wrongAttemptCount;
-}
-const bombDisarmedMenu = document.getElementById('bombDisarmedMenu');
 function blowupFail(){
-    const flash = document.getElementById('flash');
-    const youDiedMenu = document.getElementById('youDiedMenu');
     bombBlownUp = true
-    explode.play();
-    flash.classList.remove('hide');
-    flash.style.animation = 'flashAni 2s ease-out'
-    setTimeout(() => {
-        endMenu(false)
-    }, 900)
+
 }
 function bombDisarmedAlive(){
     correct.play();
     bombDisarmed = true;
     timer.style.color = 'green';
-    codeDisplay.style.color = 'green';
-    endMenu(1);
-}
-
-function setAsCode(el){
-    el.innerHTML = setupKey.get('code');
-    el.classList = '';
 }
 
 
@@ -128,7 +94,7 @@ let digit = 0;
 var disarmCode = '';
 
 
-const codeDisplay = document.getElementById('codeDisplay');
+const codeDisplay = document.getElementById('codeDisplay').children;
 console.log(codeDisplay)
 
 
@@ -149,16 +115,14 @@ function keyPadChange(key){
         if(disarmCode == setupKey.get('code')){
             clearInterval(ticker);
             bombDisarmedAlive();
-            return;
-        }else{
-            wrongCode.play();
-            wrongAttemptCount++;
         }
+        wrongCode.play();
         keyCooldown = true;
 
         wrongCooldown = true;
-        for(const codeDigit of codeDisplay.children){
+        for(const codeDigit of codeDisplay){
             if(bombDisarmed){
+                codeDigit.style.color = 'green';
             }else{
                 codeDigit.innerHTML = '_';
                 codeDigit.style.color = 'red';
@@ -177,18 +141,16 @@ function keyPadChange(key){
         if(bombDisarmed){return;}
         digit--;
         if( digit < 0) {digit = 0}
-        codeDisplay.children[digit].innerHTML = '_';
+        codeDisplay[digit].innerHTML = '_';
         disarmCode = disarmCode.slice(0, -1);
     }else if(digit <= 3){
         //num key
         keyClick.rate(1+num/10).play();
 
         if(bombDisarmed){return;}
-        codeDisplay.children[digit].innerHTML = num;
+        codeDisplay[digit].innerHTML = num;
         disarmCode += num;
         digit++;
     }
     setTimeout(() => {keyCooldown = false}, 10)
 }
-//win/lose screen
-

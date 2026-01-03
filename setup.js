@@ -1,13 +1,6 @@
-//adds touch support for dang safari... hopefully
-var allButtons = document.getElementsByTagName('button')
-for(const button of allButtons){
-    button.ontouchstart += function() {
-        element.classList.add('buttonActive');
-    }
-    button.ontouchend += function() {
-        element.classList.remove('buttonActive');
-    }
-}
+//sounds
+const keyClick    = new Howl({src: ['sound/enter.wav']});
+const backspace   = new Howl({src: ['sound/backspace.wav']});
 
 //Set Timer buttons
 const hour   = document.getElementById('hour'  ).children[2];
@@ -15,7 +8,14 @@ const minute = document.getElementById('minute').children[2];
 const second = document.getElementById('second').children[2];
 var timer = {"h":hour,"m":minute,"s":second};
 console.log(hour,minute,second);
+var buttonCooldown = false
+
 function timerChange(p, amt){
+    if(buttonCooldown){return}
+    buttonCooldown = true;
+    keyClick.rate(.5);
+
+    keyClick.play();
     timer[p].innerHTML =  Number(timer[p].innerHTML)+amt;
     if(timer[p].innerHTML > 59){
         timer[p].innerHTML = 0;
@@ -23,17 +23,25 @@ function timerChange(p, amt){
         timer[p].innerHTML = 59;
     }
 
+    setTimeout(() => {buttonCooldown = false}, 10);
 }
 
 //numpad buttons & display logic
+
+
 let digit = 0;
 var disarmCode = '';
 const codeDisplay = document.getElementById('codeDisplay').children;
 console.log(codeDisplay)
 function keyPadChange(key){
+    if(buttonCooldown){return}
+    buttonCooldown = true;
+    keyClick.rate(1);
+
     num = key.innerHTML;
     console.log(key,num,digit);
     if (num == 'C'){
+        keyClick.play();
         digit = 0
         for(const digit of codeDisplay){
             digit.innerHTML = '_';
@@ -41,16 +49,18 @@ function keyPadChange(key){
         disarmCode = '';
     } else if (num == '&lt;'){
         //backspace
+        backspace.play();
         digit--;
         if( digit < 0) {digit = 0}
         codeDisplay[digit].innerHTML = '_';
         disarmCode = disarmCode.slice(0, -1);
     }else if(digit <= 3){
+        keyClick.rate(1+num/10).play();
         codeDisplay[digit].innerHTML = num;
         disarmCode += num;
         digit++;
     }
-    console.log(disarmCode);
+    setTimeout(() => {buttonCooldown = false}, 10);
 }
 
 
@@ -60,6 +70,7 @@ const bombLink = document.getElementById('bombLink');
 const submitConfirm = document.getElementById('submitConfirm');
 const submitErr = document.getElementById('submitErr');
 let reason = '';
+let timeVar = '';
 function summitSetup(){
     blur.classList.remove('hide');
     
@@ -85,7 +96,7 @@ function summitSetup(){
     document.getElementById('code').innerHTML = disarmCode;
     const submitTime = document.getElementById('sumitTime');
     console.log(submitTime.children);
-    let timeVar = '';
+    
     for(let i = 0; i<3; i++){
 
         console.log(i,submitTime.children[i*2].innerHTML,timer[['h','m','s'][i]].innerHTML);
@@ -94,7 +105,7 @@ function summitSetup(){
         timeVar += '&' + tKey[i] + '=' + t;
         submitTime.children[i*2].innerHTML = t;
     }
-    bombLink.href += '?code='+disarmCode+timeVar;
+    bombLink.href = 'timer.html'+'?code='+disarmCode+timeVar;
 }
 
 submitErrReason

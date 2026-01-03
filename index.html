@@ -8,7 +8,7 @@
     
   </head>
   <body>
-    <h2 id="verNum">V0.10</h2>
+    <h2 id="verNum">V1.10</h2>
     <h2>TimeBomb Setup</h2>
     <hr>
     <br>
@@ -35,23 +35,23 @@
     </fieldset>
 
     <!--KeyPad UI-->
-    <fieldset id="disarmKeyPad">  <legend id="disarmTitle"> Set Disarm Code:</legend>    
+    <fieldset id="disarmKeyPad">  <legend> Set Disarm Code:</legend>    
       <img id="lockIMG" src="unlocked.svg" alt="Image Of a lock">
       <div id="codeDisplay">
-        <p >_</p>
-        <p >_</p>
-        <p >_</p>
-        <p >_</p>
+        <span>_</span>
+        <span>_</span>
+        <span>_</span>
+        <span>_</span>
       </div>
-      <br>
+      <hr>
       <div id="keyPad">
-        <span id="keyPadRow1"> <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">7</button>        <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">8</button>        <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">9</button> </span>
-        <br>
-        <span id="keyPadRow2"> <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">4</button>        <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">5</button>        <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">6</button> </span>
-        <br>
-        <span id="keyPadRow3"> <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">3</button>        <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">2</button>        <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">1</button> </span>
-        <br>
-        <span id="keyPadRow4"> <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">&lt;</button>     <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">0</button>     <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">C</button> </span>
+          <span id="keyPadRow1"> <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">7</button>        <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">8</button>        <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">9</button> </span>
+          <br>
+          <span id="keyPadRow2"> <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">4</button>        <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">5</button>        <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">6</button> </span>
+          <br>
+          <span id="keyPadRow3"> <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">3</button>        <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">2</button>        <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">1</button> </span>
+          <br>
+          <span id="keyPadRow4"> <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">&lt;</button>     <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">0</button>        <button onclick="keyPadChange(this)" ontouchend="keyPadChange(this)">C</button> </span>
       </div>
     </fieldset>
     
@@ -82,5 +82,7 @@
       <button onclick="closeMenu('submitErr')" ontouchend="closeMenu('submitErr')">Close</button>
     </fieldset>
   </body>
+  <script src="dep/howler/howler.core.js"></script>
+
   <script src="setup.js"></script>
 </html>
