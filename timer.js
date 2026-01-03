@@ -92,6 +92,8 @@ function endMenu(win){
         endMenuChildrn[2].innerHTML = 'welp... atleast you tryied...' //p
         menuCode.innerHTML = 'show';
         menuCode.classList.add('spoiler');
+    }else{
+        setAsCode(menuCode);
     }
     stats[0].innerHTML += ' Hour: '+ timerC[0].innerHTML +' Minute: ' +
         timerC[1].innerHTML + ' second: ' + timerC[2].innerHTML //timeleft
